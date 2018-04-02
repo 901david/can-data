@@ -1,0 +1,13 @@
+.centerSpinner {
+    margin-left: 40%;
+    margin-top: 10%;
+}
+
+.display-area {
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    background: lightgrey;
+    display: inline-flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
