@@ -1,2 +1,7 @@
-# can-data
-App which sorts can data and displays tot he UI
+# Can Data Application
+* Technologies: 
+    * Node Express Server
+    * React
+    * Bootstrap
+    
+    
