@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import Nav from './Nav/Nav';
+import DisplayArea from './DisplayArea/DisplayArea';
 
 class App extends Component {
     constructor(props) {
@@ -11,8 +13,11 @@ class App extends Component {
     }
   render() {
     return (
-      <div className="App">
-        <div className="btn btn-primary">Fun BUttons</div>
+      <div className="container App">
+          <div className="col-xs-12">
+              <Nav />
+              <DisplayArea />
+          </div>
       </div>
     );
   }

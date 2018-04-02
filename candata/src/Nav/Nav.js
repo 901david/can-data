@@ -1,14 +1,14 @@
 import React, {  Component } from 'react';
 
-
-class Card extends Component {
+export class Nav extends Component {
     render() {
         return (
             <div>
-                Card Works
+                Nav Works
             </div>
         );
+
     }
 }
 
-export default Card;
+export default Nav;
