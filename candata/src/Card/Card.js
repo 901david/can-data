@@ -77,17 +77,20 @@ class Card extends Component {
                 "modifiedDate": null
             }
         };
-        const {id, name, serial, size, requiresMaintenance, outOfService, source, startDate, hazardous, location} = this.props.can;
+        const {id, name, serial, size, createdDate, requiresMaintenance, outOfService, source, startDate, hazardous, location, modifiedDate} = this.props.can;
         return (
             <div className="card">
                     <div className="card-body">
                         <h5 className="card-title">Can ID: {id}</h5>
+                        <h6 className='card-title'>Created: {this.convertDate(createdDate)}</h6>
                         <ul>
                             <li>Can Name: {name}</li>
                             <li>Can Serial No: {serial}</li>
                             <li>Can Size: {size}</li>
                             <li>Client Name: {source}</li>
                             <li>Can Start Date: {this.convertDate(startDate)}</li>
+                            <li>Last Modified Date: {this.convertDate(modifiedDate)}</li>
+
                         </ul>
                         <h5 className='card-title'>Can Location:</h5>
                         <ul>

@@ -3,6 +3,8 @@ import './App.css';
 import Nav from './Nav/Nav';
 import DisplayArea from './DisplayArea/DisplayArea';
 import axios from 'axios';
+import {nameSort, serialSort, sizeSort, createdSort, modifiedSort} from './SearchHelpers';
+import _ from 'lodash';
 
 class App extends Component {
     constructor(props) {
@@ -17,15 +19,33 @@ class App extends Component {
         const currentState = this.state;
         //Retrieve initial Can Data and populate to state
         axios.get('http://localhost:3002/api/data').then((data) => {
-            this.setState({...currentState, cans: data.data, currentData: data.data});
+            this.setState({...currentState, cans: _.shuffle(data.data), currentData: _.shuffle(data.data)});
         });
     }
     displayOptions(searchCrit) {
-
+        const currentCanData = this.state.cans;
+        switch(searchCrit) {
+            case 'All':
+                return _.shuffle(currentCanData);
+            case 'Name':
+                return nameSort(currentCanData);
+            case 'Serial':
+                return serialSort(currentCanData);
+            case 'Size':
+                return sizeSort(currentCanData);
+            case 'Created On':
+                return createdSort(currentCanData);
+            case 'Modified On':
+                return modifiedSort(currentCanData);
+                default:
+                    console.log('This should never happen')
+                break;
+        }
     }
     buttonSelectChanger(button) {
         const currentState = this.state;
-        this.setState({...currentState, selectedButton: button});
+        const newCurrentData = this.displayOptions(button);
+        this.setState({...currentState, selectedButton: button, currentData: newCurrentData});
     }
   render() {
     return (

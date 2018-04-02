@@ -35,7 +35,7 @@ export class Nav extends Component {
                     <li
                         onClick={() => this.buttonSelector('Created On')}
                         className={`${currentButton === 'Created On' ? 'selectedButton' : ''} nav`}>
-                        Created
+                        Created On
                     </li>
                     <li
                         onClick={() => this.buttonSelector('Modified On')}

@@ -4,8 +4,8 @@
 }
 
 .display-area {
-    border-left: 3px solid black;
-    border-right: 3px solid black;
+    border-left: 5px solid black;
+    border-right: 5px solid black;
     background: lightgrey;
     display: inline-flex;
     justify-content: space-evenly;
