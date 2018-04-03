@@ -4,3 +4,7 @@
     margin: 5%;
     min-height: 650px;
 }
+.possibles {
+    display: flex;
+    justify-content: space-evenly;
+}

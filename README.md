@@ -15,4 +15,6 @@
     * Created On - this sorts by date from oldest to newest based on the Creation date for each location.
     * Modified on - this sorts by date from oldest to newest based on the Last time the record was modified, not the location itself.
     
+  * I used Bootstrap 4 cards to display the data coming in from the .json file. I also included font awesome icons that would be displayed if the can needed repair, contained hazardous material, or was out of service.
+    
     
