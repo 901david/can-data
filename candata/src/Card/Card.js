@@ -1,6 +1,7 @@
 import React, {  Component } from 'react';
 import './Card.css';
 import { convertDate } from "../SearchHelpers";
+import Map from '../Map/Map';
 
 class Card extends Component {
     needsMaintenance(bool) {
@@ -24,9 +25,10 @@ class Card extends Component {
             );
         }
     }
+
     render() {
         const {id, name, serial, size, createdDate, requiresMaintenance, outOfService, source, startDate, hazardous, location, modifiedDate} = this.props.can;
-        console.log(requiresMaintenance);
+
         return (
             <div className="card">
                     <div className="card-body">
@@ -50,11 +52,13 @@ class Card extends Component {
                             <li>Last Modified By: {location.modifiedBy}</li>
                             <li>Last Modified On: {convertDate(location.modifiedDate)}</li>
                         </ul>
+
                         <div className='col-xs-12 possibles'>
                         {this.needsMaintenance(requiresMaintenance)}
                         {this.outOfServiceCheck(outOfService)}
                         {this.hazardousConditions(hazardous)}
                         </div>
+                        <Map google={this.props.google} name={location.name} lat={location.location.lat} long={location.location['lon']} />
                     </div>
             </div>
         );

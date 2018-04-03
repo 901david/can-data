@@ -11,7 +11,7 @@ class DisplayArea extends Component {
                     {cans.map((can) => {
                         return (
                             <div key={can.id} className='mainCardContainer'>
-                                <Card className='card-body-piece' can={can}/>
+                                <Card className='card-body-piece' google={this.props.google} can={can}/>
                             </div>
                         );
                     })
