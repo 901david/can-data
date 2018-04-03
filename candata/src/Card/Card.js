@@ -4,6 +4,7 @@ import { convertDate } from "../SearchHelpers";
 import Map from '../Map/Map';
 
 class Card extends Component {
+    //Handles whether the Need Maintenance Icon needs to be shown
     needsMaintenance(bool) {
         if(bool) {
         return (
@@ -11,6 +12,7 @@ class Card extends Component {
         )
         }
     }
+    //Handles whether the Out of Service Icon should show
     outOfServiceCheck(bool) {
         if(bool) {
            return (
@@ -18,6 +20,7 @@ class Card extends Component {
            )
         }
     }
+    //Handles whether the Hazardous conditions Icon should show
     hazardousConditions(bool) {
         if(bool) {
             return (
@@ -27,6 +30,7 @@ class Card extends Component {
     }
 
     render() {
+
         const {id, name, serial, size, createdDate, requiresMaintenance, outOfService, source, startDate, hazardous, location, modifiedDate} = this.props.can;
 
         return (
@@ -58,7 +62,11 @@ class Card extends Component {
                         {this.outOfServiceCheck(outOfService)}
                         {this.hazardousConditions(hazardous)}
                         </div>
-                        <Map google={this.props.google} name={location.name} lat={location.location.lat} long={location.location['lon']} />
+                        <Map
+                            google={this.props.google}
+                            name={location.name}
+                            lat={location.location.lat}
+                            long={location.location['lon']} />
                     </div>
             </div>
         );

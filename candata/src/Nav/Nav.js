@@ -2,11 +2,15 @@ import React, {  Component } from 'react';
 import './Nav.css';
 
 export class Nav extends Component {
+    //Handles Changing the button selector int he parent component
     buttonSelector(button) {
         this.props.buttonSelectChanger(button);
     }
+
     render() {
+
         const { currentButton } = this.props;
+
         return (
             <div className='col-xs-12 nav-bar'>
                 <h2 className='can-title'>Can Data Display App</h2>

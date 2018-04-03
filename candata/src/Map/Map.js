@@ -3,6 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import MapInner from './Map-Inner';
 
 class Map extends Component {
+    //Adds marker onto Map
     renderMarkers(map, maps, lat, long) {
         let marker = new maps.Marker({
             position: {lat: lat, lng: long},
@@ -10,7 +11,9 @@ class Map extends Component {
             title: this.props.name
         });
     }
+
     render() {
+
         return (
             <div className='col-xs-12 map'>
                 <GoogleMapReact
@@ -20,9 +23,7 @@ class Map extends Component {
                     onGoogleApiLoaded={({map, maps}) => this.renderMarkers(map, maps, this.props.lat, this.props.long)}
                     yesIWantToUseGoogleMapApiInternals={true}
                 >
-                    <MapInner text={this.props.name}>
-
-                    </MapInner>
+                    <MapInner text={this.props.name} />
 
                 </GoogleMapReact>
             </div>

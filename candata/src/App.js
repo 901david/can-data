@@ -7,6 +7,7 @@ import {nameSort, serialSort, sizeSort, createdSort, modifiedSort} from './Searc
 import _ from 'lodash';
 
 class App extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -16,6 +17,7 @@ class App extends Component {
             google: null
         }
     }
+
     componentWillMount() {
         const currentState = this.state;
         //Retrieve initial Can Data and populate to state
@@ -23,6 +25,7 @@ class App extends Component {
             this.setState({...currentState, cans: _.shuffle(data.data.cans), currentData: _.shuffle(data.data.cans), google: data.data.google});
         });
     }
+    //Handles what helper functions hsould be called in each case
     displayOptions(searchCrit) {
         const currentCanData = this.state.cans;
         switch(searchCrit) {
@@ -43,12 +46,15 @@ class App extends Component {
                 break;
         }
     }
+    //Handles button Selection change
     buttonSelectChanger(button) {
         const currentState = this.state;
         const newCurrentData = this.displayOptions(button);
         this.setState({...currentState, selectedButton: button, currentData: newCurrentData});
     }
+
   render() {
+
         if(this.state.cans && this.state.google) {
             return (
                 <div className="container-fluid App">
@@ -61,8 +67,17 @@ class App extends Component {
             );
         }
         else {
+            //In the case we were actually reaching out to a server and there was a timeframe in getting the data we would have             a loading icon
             return (
-              <p>LOading.......</p>
+                <div className="row">
+                    <div className="col-xs-12 centerSpinner">
+                        <div className="text-center">
+                            <i className="fa fa-spin fa-spinner fa-5x"></i>
+                            <br />
+                            <p>Loading...</p>
+                        </div>
+                    </div>
+                </div>
             );
         }
   }

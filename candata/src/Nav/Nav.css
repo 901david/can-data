@@ -2,8 +2,12 @@
     background: black;
     padding: 0;
     margin:0;
-    height:150px;
+    height:15%px;
 
+}
+.nav {
+    display:flex;
+    justify-content: center;
 }
 .can-title {
     color:white;
@@ -30,9 +34,7 @@ li.nav {
 li.nav:hover {
     background-color: lightgrey;
 }
-.nav-links {
-    margin-left: 25%;
-}
+
 .selectedButton {
     background:darkgray;
 }

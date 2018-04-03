@@ -3,8 +3,11 @@ import Card from '../Card/Card';
 import './DisplayArea.css';
 
 class DisplayArea extends Component {
+
     render() {
+
         const {cans} = this.props;
+
         if (cans) {
             return (
                 <div className='display-area'>
@@ -20,6 +23,7 @@ class DisplayArea extends Component {
             );
         }
         else {
+            //Handles any delay in the retrieval of data
             return (
                 <div className="row">
                     <div className="col-xs-12 centerSpinner">
