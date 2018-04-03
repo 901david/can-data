@@ -4,6 +4,8 @@
     * React
     * Bootstrap
     * Lodash
+    * Google-React-Map
+    * Dotenv
     
 ## Main View
  * Defaults to showing all records, I used Lodash to shuffle them up for an added affect to the searching portion.
@@ -16,5 +18,6 @@
     * Modified on - this sorts by date from oldest to newest based on the Last time the record was modified, not the location itself.
     
   * I used Bootstrap 4 cards to display the data coming in from the .json file. I also included font awesome icons that would be displayed if the can needed repair, contained hazardous material, or was out of service.
+  * I used the Google-React-Map npm package to easily insert a Google Map that shows the location of the can. I used the Dotenv npm package to safely store my key in a hidden environment file which was passed to the front end with my can data. I particularly like this package because the syntax transfers over directly to AWS environment variables and makes it pretty easy to continue devving locally and have your files all set up once deployed.
     
     

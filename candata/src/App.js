@@ -12,14 +12,15 @@ class App extends Component {
         this.state = {
             cans: null,
             currentData: null,
-            selectedButton: 'All'
+            selectedButton: 'All',
+            google: null
         }
     }
     componentWillMount() {
         const currentState = this.state;
         //Retrieve initial Can Data and populate to state
         axios.get('http://localhost:3002/api/data').then((data) => {
-            this.setState({...currentState, cans: _.shuffle(data.data), currentData: _.shuffle(data.data)});
+            this.setState({...currentState, cans: _.shuffle(data.data.cans), currentData: _.shuffle(data.data.cans), google: data.data.google});
         });
     }
     displayOptions(searchCrit) {
@@ -48,14 +49,23 @@ class App extends Component {
         this.setState({...currentState, selectedButton: button, currentData: newCurrentData});
     }
   render() {
-    return (
-      <div className="container-fluid App">
-          <div className="col-xs-12">
-              <Nav currentButton={this.state.selectedButton} buttonSelectChanger={this.buttonSelectChanger.bind(this)} />
-              <DisplayArea cans={this.state.currentData} />
-          </div>
-      </div>
-    );
+        console.log('here nis or state', this.state);
+        if(this.state.cans && this.state.google) {
+            return (
+                <div className="container-fluid App">
+                    <div className="col-xs-12">
+                        <Nav currentButton={this.state.selectedButton}
+                             buttonSelectChanger={this.buttonSelectChanger.bind(this)}/>
+                        <DisplayArea cans={this.state.currentData} google={this.state.google}/>
+                    </div>
+                </div>
+            );
+        }
+        else {
+            return (
+              <p>LOading.......</p>
+            );
+        }
   }
 }
 

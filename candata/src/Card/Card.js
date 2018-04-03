@@ -1,6 +1,7 @@
 import React, {  Component } from 'react';
 import './Card.css';
 import { convertDate } from "../SearchHelpers";
+import GoogleMapReact from 'google-map-react';
 
 class Card extends Component {
     needsMaintenance(bool) {
@@ -24,9 +25,17 @@ class Card extends Component {
             );
         }
     }
+    renderMarkers(map, maps, lat, long) {
+        let marker = new maps.Marker({
+            position: {lat: lat, lng: long},
+            map,
+            title: 'Hello World!'
+        });
+    }
     render() {
         const {id, name, serial, size, createdDate, requiresMaintenance, outOfService, source, startDate, hazardous, location, modifiedDate} = this.props.can;
-        console.log(requiresMaintenance);
+
+        const AnyReactComponent = ({ text }) => <div><p>{text}</p></div>;
         return (
             <div className="card">
                     <div className="card-body">
@@ -50,10 +59,25 @@ class Card extends Component {
                             <li>Last Modified By: {location.modifiedBy}</li>
                             <li>Last Modified On: {convertDate(location.modifiedDate)}</li>
                         </ul>
+
                         <div className='col-xs-12 possibles'>
                         {this.needsMaintenance(requiresMaintenance)}
                         {this.outOfServiceCheck(outOfService)}
                         {this.hazardousConditions(hazardous)}
+                        </div>
+                        <div className='col-xs-12 map'>
+                            <GoogleMapReact
+                                bootstrapURLKeys={{ key: this.props.google }}
+                                defaultCenter={{lat: location.location.lat, lng: location.location['lon']}}
+                                defaultZoom={16}
+                                onGoogleApiLoaded={({map, maps}) => this.renderMarkers(map, maps, location.location.lat, location.location['lon'])}
+
+                            >
+                                <AnyReactComponent text={location.name}>
+
+                                </AnyReactComponent>
+
+                            </GoogleMapReact>
                         </div>
                     </div>
             </div>
