@@ -49,7 +49,6 @@ class App extends Component {
         this.setState({...currentState, selectedButton: button, currentData: newCurrentData});
     }
   render() {
-        console.log('here nis or state', this.state);
         if(this.state.cans && this.state.google) {
             return (
                 <div className="container-fluid App">
