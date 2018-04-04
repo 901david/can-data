@@ -26,7 +26,7 @@ describe('UI Affirmation Tests', function() {
             let text = await page.evaluate(() => document.title)
                 .end();
 
-            expect(text).toContain('React App');
+            expect(text).toContain('Can Data App');
         });
 
         test('it should apply the SelectedButton class to the All button', async function () {
@@ -57,7 +57,7 @@ describe('UI Affirmation Tests', function() {
     });
 
 
-    describe.skip('Interaction Tests', () => {
+    describe('Interaction Tests', () => {
 
         test('it should apply the SelectedButton class to name button if Clicked', async function () {
 
