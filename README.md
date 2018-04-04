@@ -6,6 +6,8 @@
     * Lodash
     * Google-React-Map
     * Dotenv
+    * Jest
+    * Nightmare
     
 ## Main View
  * Defaults to showing all records, I used Lodash to shuffle them up for an added affect to the searching portion.

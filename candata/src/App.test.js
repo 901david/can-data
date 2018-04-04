@@ -11,7 +11,7 @@ describe('UI Affirmation Tests', function() {
 
     });
 
-    describe.skip('When page first loads', function () {
+    describe('When page first loads', function () {
 
             test('it should render the h2 title', async function () {
 
@@ -181,7 +181,7 @@ describe('UI Affirmation Tests', function() {
         test('it should show Can ID: 2332 first when sorted by Modified On', async function () {
 
             let firstCard = await page
-                .click('.created-test')
+                .click('.modified-test')
                 .wait()
                 .evaluate(() => {
                     const card = document.body.querySelector('.card .card-body').innerHTML;
@@ -195,4 +195,4 @@ describe('UI Affirmation Tests', function() {
 
 
 
-})
+});
