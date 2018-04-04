@@ -18,32 +18,32 @@ export class Nav extends Component {
                 <ul className='nav'>
                     <li
                         onClick={() => this.buttonSelector('All')}
-                        className={`${currentButton === 'All' ? 'selectedButton' : ''} nav`}>
+                        className={`${currentButton === 'All' ? 'selectedButton' : ''} nav all-test`}>
                         All
                     </li>
                     <li
                         onClick={() => this.buttonSelector('Name')}
-                        className={`${currentButton === 'Name' ? 'selectedButton' : ''} nav`}>
+                        className={`${currentButton === 'Name' ? 'selectedButton' : ''} nav name-test`}>
                         Name
                     </li>
                     <li
                         onClick={() => this.buttonSelector('Serial')}
-                        className={`${currentButton === 'Serial' ? 'selectedButton' : ''} nav`}>
+                        className={`${currentButton === 'Serial' ? 'selectedButton' : ''} nav serial-test`}>
                         Serial
                     </li>
                     <li
                         onClick={() => this.buttonSelector('Size')}
-                        className={`${currentButton === 'Size' ? 'selectedButton' : ''} nav`}>
+                        className={`${currentButton === 'Size' ? 'selectedButton' : ''} nav size-test`}>
                         Size
                     </li>
                     <li
                         onClick={() => this.buttonSelector('Created On')}
-                        className={`${currentButton === 'Created On' ? 'selectedButton' : ''} nav`}>
+                        className={`${currentButton === 'Created On' ? 'selectedButton' : ''} nav created-test`}>
                         Created On
                     </li>
                     <li
                         onClick={() => this.buttonSelector('Modified On')}
-                        className={`${currentButton === 'Modified On' ? 'selectedButton' : ''} nav`}>
+                        className={`${currentButton === 'Modified On' ? 'selectedButton' : ''} nav modified-test`}>
                         Modified On
                     </li>
                 </ul>

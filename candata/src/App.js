@@ -19,6 +19,9 @@ class App extends Component {
     }
 
     componentWillMount() {
+        this.getInitialData();
+    }
+    getInitialData() {
         const currentState = this.state;
         //Retrieve initial Can Data and populate to state
         axios.get('http://localhost:3002/api/data').then((data) => {
